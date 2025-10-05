@@ -14,48 +14,81 @@ import { Plus, Minus, Trash2, ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const MENU_ITEMS = [
-  "Grilled Cheese Rooties",
+  // Grilled Cheese Rooties
   "Classic Grilled Cheese Rootie",
   "Garlic Grilled Cheese Rootie",
   "Chilli Cheese Rootie",
   "BBQ Chicken-Mayo Rootie",
+  
+  // 🥪 Grilled Cheese Sandwiches
   "Classic Cheese",
   "Cheese & Tomato",
   "Chicken-Mayo",
   "Ham & Cheese",
+  
+  // 🌭 Grilled Boerewors & Hotdogs
   "Classic Boerie Roll",
   "Cheese & Onion Boerie",
   "Peri-Peri Boerie",
   "BBQ Hotdog",
+  
+  // 🍔 Grilled Cheese Burgers
   "Classic Cheese Burger",
   "Chilli Cheese Burger",
   "Mushroom & Swiss Cheese Burger",
   "BBQ Bacon Cheese Burger",
+  
+  // 🍟 Fried Chips
   "Classic Salted Chips",
   "Peri-Peri Spiced Chips",
   "Cheesy Loaded Fries",
   "Garlic-Mayo Chips",
+  
+  // 🍗 Fried Chicken
   "Original Fried Chicken",
   "Hot & Crispy Fried Chicken",
   "Zinger Fried Chicken",
+  
+  // 🥪 Cold Sandwiches
   "Cold Salami & Cream Cheese",
   "Cold Salami Mayo",
   "Cold Salami Mustard",
   "Toasted Salami & Cream Cheese",
-  "Chocolate Chip Muffin",
-  "Blueberry Muffin",
-  "Bran & Raisin Muffin",
-  "Banana Nut Muffin",
-  "Coffee",
+  
+  // 🧁 Muffins
+  "Chocolate Chip",
+  "Blueberry",
+  "Bran & Raisin",
+  "Banana Nut",
+  
+  // ☕ Coffee
   "Americano",
   "Cappuccino",
-  "Latte (Vanilla/Caramel/Mocha)",
-  "Espresso/Double Shot",
+  "Latte (Vanilla / Caramel / Mocha)",
+  "Espresso / Double Shot",
   "Iced Coffee",
-  "Milkshakes (Vanilla, Chocolate, Strawberry, Oreo/Cookies & Cream)",
-  "Smoothies (Berry Blast, Tropical Mix, Green Energy)",
-  "Cold Drinks/Sports/Energy Drinks (Coca-Cola, Fanta, Sprite, Powerade, Energade, Monster, Red Bull)",
-  "Fresh Fruit Juices (Orange, Apple, Mango, Mixed Fruit)",
+  
+  // 🥤 Milkshakes
+  "Vanilla",
+  "Chocolate",
+  "Strawberry",
+  "Oreo / Cookies & Cream",
+  
+  // 🍹 Smoothies
+  "Berry Blast (strawberry, blueberry, banana)",
+  "Tropical Mix (mango, pineapple, orange)",
+  "Green Energy (spinach, apple, banana, ginger)",
+  
+  // 🥤 Cold Drinks / Sports / Energy Drinks
+  "Coca-Cola, Fanta, Sprite",
+  "Powerade / Energade",
+  "Monster / Red Bull",
+  
+  // 🧃 Fresh Fruit Juices
+  "Orange Juice",
+  "Apple Juice",
+  "Mango Juice",
+  "Mixed Fruit Juice",
 ];
 
 interface CartItem {
