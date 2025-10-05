@@ -10,7 +10,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, Trash2, ShoppingCart } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const MENU_ITEMS = [
   "Grilled Cheese Rooties",
@@ -57,6 +58,11 @@ const MENU_ITEMS = [
   "Fresh Fruit Juices (Orange, Apple, Mango, Mixed Fruit)",
 ];
 
+interface CartItem {
+  item: string;
+  quantity: number;
+}
+
 interface OrderFormProps {
   onAddOrder: (item: string, quantity: number, customerName: string) => void;
 }
@@ -66,21 +72,37 @@ export const OrderForm = ({ onAddOrder }: OrderFormProps) => {
   const [quantity, setQuantity] = useState(1);
   const [customerName, setCustomerName] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  const handleAddToCart = () => {
+    if (selectedItem) {
+      setCart((prev) => [...prev, { item: selectedItem, quantity }]);
+      setSelectedItem("");
+      setQuantity(1);
+      setSearchTerm("");
+    }
+  };
+
+  const handleRemoveFromCart = (index: number) => {
+    setCart((prev) => prev.filter((_, i) => i !== index));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedItem && customerName.trim()) {
-      onAddOrder(selectedItem, quantity, customerName.trim());
-      setSelectedItem("");
-      setQuantity(1);
+    if (cart.length > 0 && customerName.trim()) {
+      cart.forEach((cartItem) => {
+        onAddOrder(cartItem.item, cartItem.quantity, customerName.trim());
+      });
+      setCart([]);
       setCustomerName("");
-      setSearchTerm("");
     }
   };
 
   const filteredItems = MENU_ITEMS.filter((item) =>
     item.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <Card className="border-border bg-card shadow-lg">
@@ -155,6 +177,51 @@ export const OrderForm = ({ onAddOrder }: OrderFormProps) => {
             </div>
           </div>
 
+          <Button
+            type="button"
+            onClick={handleAddToCart}
+            className="w-full h-12 text-base font-semibold bg-accent hover:bg-accent/90 text-accent-foreground"
+            disabled={!selectedItem}
+          >
+            <Plus className="h-5 w-5 mr-2" />
+            Add to Order
+          </Button>
+
+          {cart.length > 0 && (
+            <div className="space-y-3 p-4 bg-muted/30 rounded-lg border-2 border-border">
+              <div className="flex items-center justify-between">
+                <Label className="text-base font-semibold text-foreground flex items-center gap-2">
+                  <ShoppingCart className="h-5 w-5" />
+                  Current Order
+                </Label>
+                <Badge className="bg-primary text-primary-foreground font-bold">
+                  {totalItems} items
+                </Badge>
+              </div>
+              <div className="space-y-2">
+                {cart.map((cartItem, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 bg-card rounded border border-border"
+                  >
+                    <span className="text-sm font-medium text-foreground">
+                      {cartItem.quantity}x {cartItem.item}
+                    </span>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => handleRemoveFromCart(index)}
+                      className="h-8 w-8 p-0 hover:bg-destructive hover:text-destructive-foreground"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="space-y-2">
             <Label htmlFor="customerName" className="text-base font-semibold text-foreground">
               Customer Name
@@ -173,12 +240,13 @@ export const OrderForm = ({ onAddOrder }: OrderFormProps) => {
           <Button
             type="submit"
             className="w-full h-14 text-lg font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
-            disabled={!selectedItem || !customerName.trim()}
+            disabled={cart.length === 0 || !customerName.trim()}
           >
-            Add Order
+            Submit Order ({cart.length} {cart.length === 1 ? 'item' : 'items'})
           </Button>
         </form>
       </CardContent>
     </Card>
   );
 };
+
