@@ -21,10 +21,10 @@ const MENU_ITEMS = [
   "BBQ Chicken-Mayo Rootie",
   
   // 🥪 Grilled Cheese Sandwiches
-  "Classic Cheese",
-  "Cheese & Tomato",
-  "Chicken-Mayo",
-  "Ham & Cheese",
+  "Classic Cheese Sandwiche",
+  "Cheese & Tomato Sandwiche",
+  "Chicken-Mayo Sandwiche",
+  "Ham & Cheese Sandwiche",
   
   // 🌭 Grilled Boerewors & Hotdogs
   "Classic Boerie Roll",
@@ -41,7 +41,7 @@ const MENU_ITEMS = [
   // 🍟 Fried Chips
   "Classic Salted Chips",
   "Peri-Peri Spiced Chips",
-  "Cheesy Loaded Fries",
+  "Cheesy Loaded Fried Chips",
   "Garlic-Mayo Chips",
   
   // 🍗 Fried Chicken
@@ -50,40 +50,47 @@ const MENU_ITEMS = [
   "Zinger Fried Chicken",
   
   // 🥪 Cold Sandwiches
-  "Cold Salami & Cream Cheese",
-  "Cold Salami Mayo",
-  "Cold Salami Mustard",
-  "Toasted Salami & Cream Cheese",
+  "Cold Salami & Cream Cheese Sandwiche",
+  "Cold Salami Mayo Sandwiche",
+  "Cold Salami Mustard Sandwiche",
+  "Toasted Salami & Cream Cheese Sandwiche",
   
   // 🧁 Muffins
-  "Chocolate Chip",
-  "Blueberry",
-  "Bran & Raisin",
-  "Banana Nut",
+  "Chocolate Chip Muffin",
+  "Blueberry Muffin",
+  "Bran & Raisin Muffin",
+  "Banana Nut Muffin",
   
   // ☕ Coffee
   "Americano",
   "Cappuccino",
-  "Latte (Vanilla / Caramel / Mocha)",
-  "Espresso / Double Shot",
+  "Espresso",
+  "Espresso Double Shot",
   "Iced Coffee",
+  "Latte Vanilla",
+  "Latte Caramel",
+  "Latte Mocha",
+  
   
   // 🥤 Milkshakes
-  "Vanilla",
-  "Chocolate",
-  "Strawberry",
-  "Oreo / Cookies & Cream",
+  "Vanilla Milkshake",
+  "Chocolate Milkshake",
+  "Strawberry Milkshake",
+  "Oreo Cookies & Cream Milkshake",
   
   // 🍹 Smoothies
-  "Berry Blast (strawberry, blueberry, banana)",
-  "Tropical Mix (mango, pineapple, orange)",
-  "Green Energy (spinach, apple, banana, ginger)",
+  "Berry Blast Smoothie (strawberry, blueberry, banana)",
+  "Tropical Mix Smoothie (mango, pineapple, orange)",
+  "Green Energy Smoothie (spinach, apple, banana, ginger)",
   
   // 🥤 Cold Drinks / Sports / Energy Drinks
-  "Coca-Cola, Fanta, Sprite",
-  "Powerade / Energade",
-  "Monster / Red Bull",
-  
+  "Coca-Cola",
+  "Fanata",
+  "Sprite",
+  "Powerade",
+  "Energade",
+  "Monster",
+  "Red Bull",
   // 🧃 Fresh Fruit Juices
   "Orange Juice",
   "Apple Juice",
